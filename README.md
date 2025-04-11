@@ -39,8 +39,7 @@ de taille 0 ou 1.
 3. Algorithme du tri par sélection
 Boucle principale (parcours du tableau)
 
-for (i = 0; i < size - 1; i++)
-Explication : Boucle principale
+for (i = 0; i < size - 1; i++)                                                                                        Explication : Boucle principale
 La boucle principale parcourt le tableau d'entiers. La variable i représente
 l'index de l'élément actuel. La boucle s'arrête lorsque i atteint size - 1,
 car l'élément à l'index size - 1 n'a pas besoin d'être trié (il est déjà à sa
@@ -76,9 +75,6 @@ if (min_idx != i)
     print_array(array, size);
 }
 Explication : Échange des valeurs
-Si min_index est différent de i, cela signifie que l'élément minimum trouvé
-dans la partie non triée est différent de l'élément à l'index i. Dans ce cas,
-on effectue un échange entre ces deux éléments. On utilise une variable
-temp pour stocker temporairement la valeur de array[i], puis on effectue
+Si min_index est différent de i, cela signifie que l'élément minimum trouvé dans la partie non triée est différent de l'élément à l'index i. Dans ce cas, on effectue un échange entre ces deux éléments. On utilise une variable temp pour stocker temporairement la valeur de array[i], puis on effectue
 l'échange. Après l'échange, on appelle la fonction print_array pour
 afficher l'état actuel du tableau après chaque échange.
