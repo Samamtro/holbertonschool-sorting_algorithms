@@ -33,7 +33,9 @@ void bubble_sort(int *array, size_t size)
 			if (array[j] > array[j + 1])
 			{
 				/* Échange des éléments s'ils sont dans le mauvais ordre */
-				temp = array[j];
+				/* Utilisation d'une variable temporaire pour l'échange */
+				/* Affichage du tableau avant l'échange */
+				temp = array[j];	/* Stockage de la valeur actuelle */
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
 
