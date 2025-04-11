@@ -85,6 +85,7 @@ if (min_idx != i)
 
     print_array(array, size);
 }
+
 Explication : Échange des valeurs
 
 Si min_index est différent de i, cela signifie que l'élément minimum trouvé
