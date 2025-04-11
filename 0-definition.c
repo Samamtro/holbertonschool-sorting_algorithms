@@ -72,15 +72,16 @@ analyser la performance d'un algorithme et pour comparer différents
 algorithmes entre eux.
 
 O(n²) – Complexité Quadratique
-- La complexité quadratique O(n²) signifie que le temps d'exécution de
+Def - La complexité quadratique O(n²) signifie que le temps d'exécution de
   l'algorithme augmente proportionnellement au carré de la taille de
   l'entrée.
+  Exemple:
   🔹 Si n = 10, environ 100 opérations.
   🔹 Si n = 1 000, environ 1 000 000 opérations.
   Le temps explose lorsque n grandit.
 
   O(n²) – Complexité Quadratique
-- La complexité quadratique O(n²) est souvent associée à des algorithmes
+Def - La complexité quadratique O(n²) est souvent associée à des algorithmes
   de tri simples, comme le tri à bulles, le tri par insertion ou le tri
   par sélection.
 - Ces algorithmes effectuent des comparaisons et des échanges entre
