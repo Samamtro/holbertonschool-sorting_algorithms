@@ -29,8 +29,8 @@ void selection_sort(int *array, size_t size)
 		min_idx = i;	/* Initialisation de l'indice du minimum */
 	/* Boucle interne pour trouver l'élément minimum dans le reste du tableau */
 		for (j = i + 1; j < size; j++)
-			if (array[j] < array[min_idx])
-				min_idx = j;	/* Mise à jour de l'indice du minimum */
+			if (array[j] < array[min_idx])	 /* Comparaison des éléments */
+				/* Mise à jour de l'indice du minimum */
 
 		if (min_idx != i)	/* Si un nouvel élément minimum a été trouvé */
 		{
