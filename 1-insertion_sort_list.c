@@ -10,44 +10,45 @@
  * Return: Nothing (void function).
  */
 void insertion_sort_list(listint_t **list)
-{
-	listint_t *current, *temp, *next_node;
-
+{	/* Déclaration des pointeurs */
+	/*
+	 * list : Pointeur vers la tête de la liste chaînée
+	 * current : Pointeur vers l'élément courant de la liste
+	 * temp : Pointeur vers l'élément à insérer dans la liste triée
+	 * next : Pointeur vers l'élément suivant de la liste
+	 */
+	listint_t *current, *temp, *next;	/* Pointeur vers l'élément courant */
 	/* Vérifie si la liste est vide ou contient un seul élément */
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
-		return;
-	/* Commence le tri à partir du deuxième élément */
-	current = (*list)->next;
-	while (current != NULL)	/* Parcourt la liste à partir du dexieme element */
+	if (list == NULL || *list == NULL)
 	{
-		/* Stocke le prochain nœud avant modification */
-		next_node = current->next;
-		temp = current->prev; /* Pointeur temporaire vers le nœud précédent */
-
-		/* Déplace le nœud actuel à sa position correcte dans la liste */
-		while (temp != NULL && current->n < temp->n)
-		{
-			/* Échange des nœuds */
-			if (temp->prev != NULL)	/* Si temp n'est pas le premier nœud */
-			/* Ajuste le lien du nœud précédent */
-				temp->prev->next = current;
-			else	/* Met à jour la tête de la liste si nécessaire */
-				*list = current;
-			/* Met à jour le pointeur prev de current */
-			current->prev = temp->prev;
-			temp->prev = current;	/* Met à jour le pointeur prev de temp */
-			current->next = temp;	/* current pointe maintenant vers temp */
-			temp->next = next_node;	/* temp pointe maintenant vers next_node */
-
-			/* Si next_node existe, ajuste son pointeur prev */
-			if (next_node != NULL)
-				next_node->prev = temp;	/* next_node pointe vers temp */
-			/* Si temp n'est pas le dernier nœud, ajuste son pointeur next */
-
-			print_list(*list); /* Affiche la liste après chaque échange */
-			/* Continue de comparer avec le nœud précédent */
-			temp = current->prev;
-		}
-		current = next_node; /* Passe au prochain élément de la liste */
+		return;	/* Retourne immédiatement si la liste est vide ou nulle */
+	}
+	/* Initialise le pointeur courant à l'élément suivant de la tête */
+	current = (*list)->next;
+	while (current != NULL)	/* Parcourt la liste jusqu'à la fin */
+	{
+		temp = current;	/* Pointeur vers l'élément à insérer */
+		next = current->next;	/* Pointeur vers l'élément suivant de la liste */
+		/* Déplacement du nœud actuel vers sa position correcte */
+		while (temp->prev != NULL && temp->n < temp->prev->n)
+		{	/* Détache temp de sa position actuelle */
+			temp->prev->next = temp->next;
+			/* Si temp n'était pas le dernier élément, ajuste son successeur */
+			if (temp->next != NULL)
+				temp->next->prev = temp->prev;	/* Ajuste le prédécesseur de temp */
+			/* Insère temp avant son prédécesseur */
+			 /* L'ancien prédécesseur devient le suivant */
+			temp->next = temp->prev;
+			/* temp prend la place de l'ancien prédécesseur */
+			temp->prev = temp->prev->prev;
+			temp->next->prev = temp;	/* Mise à jour du lien arrière */
+			if (temp->prev != NULL)	/* Si temp n'est pas le premier élément */
+				temp->prev->next = temp;	/* Mise à jour du lien avant */
+			else
+			/* Si temp est le premier élément, met à jour la tête de la liste */
+				*list = temp;
+			print_list(*list);	/* Affiche la liste après chaque modification */
+			}
+			current = next;	/* Passe au nœud suivant dans la liste */
 	}
 }
