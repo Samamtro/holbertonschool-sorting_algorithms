@@ -192,17 +192,23 @@ Si l’élément courant est plus petit ou égal au pivot :
 
 	i++;
 On avance la zone des petits éléments.
+
 @i : index de séparation
+
 @++ : incrémentation de i
 	- Incrémente i pour indiquer qu'un nouvel élément inférieur au pivot a été trouvé.
 	- Cela permet de suivre la position d'insertion des éléments inférieurs au pivot.
 	- La variable i est utilisée pour séparer les éléments inférieurs et supérieurs au pivot.
 	- Elle est incrémentée chaque fois qu'un élément inférieur au pivot est trouvé.
 
+
 	if (i != j)
 S’il y a un écart entre i et j, on échange (sinon inutile).
+
 @i : index de séparation
+
 @j : index de la boucle
+
 @!= : opérateur de comparaison
 	- Vérifie si i et j sont différents.
 	- Si c'est le cas, cela signifie qu'un échange est nécessaire.
@@ -210,9 +216,13 @@ S’il y a un écart entre i et j, on échange (sinon inutile).
 	- La condition permet d'optimiser l'algorithme en évitant des opérations superflues.
 	- Si i et j sont égaux, il n'y a pas besoin d'échanger les éléments.
 	- Cela permet de réduire le nombre d'opérations effectuées pendant la partition.
+
 	swap(&array[i], &array[j]);
+
 @swap : fonction d'échange
+
 @&array[i] : adresse de l'élément à la position i
+
 @&array[j] : adresse de l'élément à la position j
 	- Appelle la fonction swap pour échanger les éléments à l'index i et j.
 	- Cela place l'élément courant à la position correcte par rapport au pivot.
@@ -222,9 +232,13 @@ S’il y a un écart entre i et j, on échange (sinon inutile).
 	- Cela permet de placer les éléments inférieurs au pivot à gauche et ceux supérieurs à droite.
 
 	print_sort(array, size, 0);
+
 @print_sort : fonction d'affichage du tableau
+
 @array : tableau d'entiers à afficher
+
 @size : taille du tableau
+
 @0 : indique que c'est une étape intermédiaire
 	- Appelle la fonction print_sort pour afficher l'état du tableau après chaque échange.
 	- Cela permet de visualiser le processus de partitionnement.
@@ -235,8 +249,11 @@ S’il y a un écart entre i et j, on échange (sinon inutile).
 	🔁 Après la boucle :
 
 if (i + 1 != size - 1)
+
 @i + 1 : index du prochain élément
+
 @size - 1 : index du dernier élément (le pivot)
+
 @!= : opérateur de comparaison
 	- Vérifie si l'index i + 1 est différent de size - 1 (le pivot).
 	- Si c'est le cas, cela signifie qu'il faut échanger le pivot avec l'élément à la position i + 1.
@@ -246,17 +263,25 @@ if (i + 1 != size - 1)
 
 	- Cela permet de réduire le nombre d'opérations effectuées pendant la partition.
 {
-    swap(&array[i + 1], &array[size - 1]);
+
+swap(&array[i + 1], &array[size - 1]);
+
 @swap : fonction d'échange
+
 @&array[i + 1] : adresse de l'élément à la position i + 1
+
 @&array[size - 1] : adresse de l'élément à la position size - 1 (le pivot)
 	- Appelle la fonction swap pour échanger le pivot avec l'élément à la position i + 1.
 	- Cela place le pivot à sa position correcte dans le tableau.
 
 	print_sort(array, size, 0);
+
 @print_sort : fonction d'affichage du tableau
+
 @array : tableau d'entiers à afficher
+
 @size : taille du tableau
+
 @0 : indique que c'est une étape intermédiaire
 	- Appelle la fonction print_sort pour afficher l'état du tableau après l'échange du pivot.
 	- Cela permet de visualiser le tableau après la partition.
@@ -266,7 +291,9 @@ if (i + 1 != size - 1)
 }
 return (i + 1);
 On retourne l’indice final du pivot (sa position correcte dans le tableau trié).
+
 @i + 1 : index du pivot
+
 @return : retourne l'index du pivot
 	- Retourne l'index du pivot après la partition.
 	- Cela permet de diviser le tableau en deux parties pour le tri rapide.
@@ -276,13 +303,21 @@ On retourne l’indice final du pivot (sa position correcte dans le tableau tri�
 
 🖨️ Fonction print_sort
 
+
 void print_sort(int array[], size_t size, int init)
+
 @void : type de retour de la fonction
+
 @print_sort : nom de la fonction
+
 @int : type entier
+
 @array : tableau d'entiers à afficher
+
 @size : taille du tableau
+
 @int : type entier
+
 @init : indique si c'est l'initialisation du tableau
 	- Cette fonction affiche le tableau d'entiers à chaque étape du tri.
 	- Elle utilise une variable statique pour conserver l'état du tableau initial.
@@ -291,16 +326,23 @@ void print_sort(int array[], size_t size, int init)
 	- Cela permet de suivre l'évolution du tableau pendant le tri rapide.
 	- La fonction print_sort est appelée dans la fonction partition pour afficher le tableau après chaque échange.
 
+
 	static int *p = (void *)0;
+
 @static : variable statique
+
 @int *p : pointeur vers le tableau d'entiers
+
 @void *0 : valeur nulle
 	- p est un pointeur statique qui conserve l'état du tableau initial.
 	- Il est initialisé à NULL (valeur nulle) pour indiquer qu'il n'a pas encore été assigné.
 
 	static size_t s;
+
 @static : variable statique
+
 @size_t : type entier non signé
+
 @s : variable pour la taille du tableau
 	- s est une variable statique qui conserve la taille du tableau initial.
 	- Elle est utilisée pour afficher le tableau à chaque étape du tri.
@@ -308,7 +350,9 @@ void print_sort(int array[], size_t size, int init)
 	- Elle est utilisée pour stocker la taille du tableau initial.
 
 	if (!p && init)
+
 @p : pointeur vers le tableau d'entiers
+
 @init : indique si c'est l'initialisation du tableau
 	- Vérifie si p est NULL et si init est vrai (1).
 	- Si c'est le cas, cela signifie que c'est la première fois que la fonction est appelée.
@@ -317,20 +361,27 @@ void print_sort(int array[], size_t size, int init)
 	- Cela évite de réinitialiser p et s à chaque appel de la fonction.
 {
 	p = array;	/* p prend l'adresse du tableau */
+
 	s = size;	/* s prend la taille du tableau */
 }
+
 Si c’est le premier appel avec init == 1, on stocke le tableau de base (p) et sa taille (s).
 
 if (!init)
+
 @init : indique si c'est l'initialisation du tableau
+
 @!init : condition inverse
 	- Vérifie si init est faux (0).
 	- Si c'est le cas, cela signifie que la fonction doit afficher le tableau.
 	- Cela permet d'afficher le tableau à chaque étape du tri.
 
 	print_array(p, s);
+
 @print_array : fonction d'affichage du tableau
+
 @p : pointeur vers le tableau d'entiers
+
 @s : taille du tableau
 	- Appelle la fonction print_array pour afficher le tableau d'entiers.
 	- Cela permet de visualiser l'état du tableau à chaque étape du tri.
