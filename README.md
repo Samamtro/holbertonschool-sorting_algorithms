@@ -94,3 +94,10 @@ on effectue un échange entre ces deux éléments. On utilise une variable
 temp pour stocker temporairement la valeur de array[i], puis on effectue
 l'échange. Après l'échange, on appelle la fonction print_array pour
 afficher l'état actuel du tableau après chaque échange.
+
+
+
+
+
+
+
